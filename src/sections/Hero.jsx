@@ -1,10 +1,8 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-
-import AnimatedCounter from "../components/AnimatedCounter";
-import Button from "../components/Button";
 import { words } from "../constants";
 import HeroExperience from "../components/models/hero_models/HeroExperience";
+import TitleHeader from "../components/TitleHeader";
 
 const Hero = () => {
   useGSAP(() => {
@@ -14,6 +12,16 @@ const Hero = () => {
       { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.inOut" }
     );
   });
+
+  const handleDownload = () => {
+    console.log("hiii");
+    const link = document.createElement("a");
+    link.href = "/Resume_Shreshth.pdf";
+    link.download = "Resume_Shreshth.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <section id="hero" className="relative overflow-hidden">
@@ -26,40 +34,47 @@ const Hero = () => {
         <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
           <div className="flex flex-col gap-7">
             <div className="hero-text">
+              <h1>Turning ideas into</h1>
+              <h1>full-stack solutions</h1>
+
               <h1>
-                Shaping
+                using
                 <span className="slide">
                   <span className="wrapper">
-                    {words.map((word, index) => (
+                    {words.map(({ text, Icon, className }, i) => (
                       <span
-                        key={index}
+                        key={i}
                         className="flex items-center md:gap-3 gap-1 pb-2"
                       >
-                        <img
-                          src={word.imgPath}
-                          alt="person"
-                          className="xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full bg-white-50"
-                        />
-                        <span>{word.text}</span>
+                        <Icon className={className} />
+                        <span>{text}</span>
                       </span>
                     ))}
                   </span>
                 </span>
               </h1>
-              <h1>into Real Projects</h1>
-              <h1>that Deliver Results</h1>
             </div>
 
             <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I’m Adrian, a developer based in Croatia with a passion for
-              code.
+              Hi, I’m Shreshth, a MERN stack developer with 1+ year of
+              experience
             </p>
 
-            <Button
-              text="See My Work"
-              className="md:w-80 md:h-16 w-60 h-12"
-              id="counter"
-            />
+            <div
+              onClick={handleDownload}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === "Enter" && handleDownload()}
+              className="cta-wrapper md:w-80 md:h-16 w-60 h-12"
+            >
+              <div className="cta-button group">
+                <div className="bg-circle" />
+                <p className="text">Resume</p>
+                <div className="arrow-wrapper">
+                  <img src="/images/arrow-down.svg" alt="arrow" />
+                </div>
+              </div>
+            </div>
           </div>
         </header>
 
@@ -71,7 +86,10 @@ const Hero = () => {
         </figure>
       </div>
 
-      <AnimatedCounter />
+      <TitleHeader
+        title="Featured Projects"
+        sub="🚀 Real-World Builds & Case Studies"
+      />
     </section>
   );
 };

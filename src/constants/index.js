@@ -1,3 +1,6 @@
+import { FaReact, FaNodeJs } from "react-icons/fa";
+import { SiExpress, SiMongodb } from "react-icons/si";
+
 const navLinks = [
   {
     name: "Work",
@@ -11,21 +14,17 @@ const navLinks = [
     name: "Skills",
     link: "#skills",
   },
-  {
-    name: "Testimonials",
-    link: "#testimonials",
-  },
 ];
 
 const words = [
-  { text: "Ideas", imgPath: "/images/ideas.svg" },
-  { text: "Concepts", imgPath: "/images/concepts.svg" },
-  { text: "Designs", imgPath: "/images/designs.svg" },
-  { text: "Code", imgPath: "/images/code.svg" },
-  { text: "Ideas", imgPath: "/images/ideas.svg" },
-  { text: "Concepts", imgPath: "/images/concepts.svg" },
-  { text: "Designs", imgPath: "/images/designs.svg" },
-  { text: "Code", imgPath: "/images/code.svg" },
+  { text: "React", Icon: FaReact, className: "text-cyan-400" },
+  { text: "Node.js", Icon: FaNodeJs, className: "text-green-500" },
+  { text: "Express.js", Icon: SiExpress, className: "text-gray-400" },
+  { text: "MongoDB", Icon: SiMongodb, className: "text-green-600" },
+  { text: "React", Icon: FaReact, className: "text-cyan-400" },
+  { text: "Node.js", Icon: FaNodeJs, className: "text-green-500" },
+  { text: "Express.js", Icon: SiExpress, className: "text-gray-400" },
+  { text: "MongoDB", Icon: SiMongodb, className: "text-green-600" },
 ];
 
 const counterItems = [
@@ -114,72 +113,53 @@ const techStackImgs = [
 
 const techStackIcons = [
   {
-    name: "React Developer",
+    name: "Frontend",
     modelPath: "/models/react_logo-transformed.glb",
     scale: 1,
     rotation: [0, 0, 0],
   },
   {
-    name: "Python Developer",
-    modelPath: "/models/python-transformed.glb",
-    scale: 0.8,
-    rotation: [0, 0, 0],
-  },
-  {
-    name: "Backend Developer",
+    name: "Backend",
     modelPath: "/models/node-transformed.glb",
     scale: 5,
     rotation: [0, -Math.PI / 2, 0],
-  },
-  {
-    name: "Interactive Developer",
-    modelPath: "/models/three.js-transformed.glb",
-    scale: 0.05,
-    rotation: [0, 0, 0],
-  },
-  {
-    name: "Project Manager",
-    modelPath: "/models/git-svg-transformed.glb",
-    scale: 0.05,
-    rotation: [0, -Math.PI / 4, 0],
   },
 ];
 
 const expCards = [
   {
-    review: "Adrian brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
+    review: "Worked as Programmer Analyst @Argusoft",
     imgPath: "/images/exp1.png",
-    logoPath: "/images/logo1.png",
-    title: "Frontend Developer",
-    date: "January 2023 - Present",
+    logoPath: "/images/argusoft-logo.png",
+    title: "Programmer Analyst",
+    date: "July 2023 - July 2024",
     responsibilities: [
-      "Developed and maintained user-facing features for the Hostinger website.",
-      "Collaborated closely with UI/UX designers to ensure seamless user experiences.",
-      "Optimized web applications for maximum speed and scalability.",
+      "Designed and implemented systems to detect and resolve duplicate healthcare records to improve data integrity.",
+      "Built intuitive dashboards and UI components for data review, patient tracking, and service updates.",
+      "Collaborated with cross-functional teams to ensure efficient data analysis and real-time monitoring using modern tech stacks.",
     ],
   },
   {
-    review: "Adrian’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
+    review: "Worked as an Intern @Argusoft",
     imgPath: "/images/exp2.png",
-    logoPath: "/images/logo2.png",
-    title: "Full Stack Developer",
-    date: "June 2020 - December 2023",
+    logoPath: "/images/argusoft-logo.png",
+    title: "Intern",
+    date: "January 2023 - May 2023",
     responsibilities: [
-      "Led the development of Docker's web applications, focusing on scalability.",
-      "Worked with backend engineers to integrate APIs seamlessly with the frontend.",
-      "Contributed to open-source projects that were used with the Docker ecosystem.",
+      "Developed a dynamic Pay Slip Builder enabling employers to create custom pay slips using a drag-and-drop interface.",
+      "Implemented support for configurable sections and fields, allowing reusable and flexible pay slip templates.",
+      "Enabled saving and managing multiple pay slip formats to streamline payroll processes.",
     ],
   },
   {
-    review: "Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.",
+    review:
+      "B. Tech (Electrical & Electronics) from Sagar Institute of Research & Technology",
     imgPath: "/images/exp3.png",
-    logoPath: "/images/logo3.png",
-    title: "React Native Developer",
-    date: "March 2019 - May 2020",
+    logoPath: "/images/sirt-logo.png",
+    title: "B. Tech",
+    date: "August 2019 - May 2023",
     responsibilities: [
-      "Built cross-platform mobile apps using React Native, integrating with Appwrite's backend services.",
-      "Improved app performance and user experience through code optimization and testing.",
-      "Coordinated with the product team to implement features based on feedback.",
+      "Completed B.Tech in Electrical and Electronics Engineering with a strong foundation in circuits, control systems, and embedded technologies.",
     ],
   },
 ];

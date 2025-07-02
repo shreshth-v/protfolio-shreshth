@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
-
 import TitleHeader from "../components/TitleHeader";
 import ContactExperience from "../components/models/contact/ContactExperience";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -20,22 +20,40 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Show loading state
+
+    // show loading spinner toast
+    const toastId = toast.loading("Sending message...");
+    setLoading(true);
 
     try {
-      await emailjs.sendForm(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      // build form‑data payload
+      const formData = new FormData();
+      formData.append("name", form.name);
+      formData.append("email", form.email);
+      formData.append("message", form.message);
+
+      // POST to Formspree
+      const res = await axios.post(
+        "https://formspree.io/f/xyzeaqnb",
+        formData,
+        { headers: { Accept: "application/json" } }
       );
 
-      // Reset form and stop loading
-      setForm({ name: "", email: "", message: "" });
+      // always remove the loading toast first
+      toast.dismiss(toastId);
+
+      if (res.status === 200) {
+        toast.success("Message sent!");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        toast.error("Failed to send. Please try again.");
+      }
     } catch (error) {
-      console.error("EmailJS Error:", error); // Optional: show toast
+      toast.dismiss(toastId);
+      toast.error("Something went wrong!");
+      console.error("Formspree Error:", error);
     } finally {
-      setLoading(false); // Always stop loading, even on error
+      setLoading(false);
     }
   };
 
